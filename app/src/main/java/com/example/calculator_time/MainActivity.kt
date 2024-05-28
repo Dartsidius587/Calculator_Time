@@ -27,6 +27,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        init()
+    }
+
+    fun init(){
         setContentView(R.layout.activity_main)
 
         firstOperandET = findViewById(R.id.firstOperandET)
@@ -43,7 +47,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         buttonDifBTN.setOnClickListener(this)
         buttonResetBTN.setOnClickListener(this)
         buttonExitBTN.setOnClickListener(this)
-
     }
 
     override fun onClick(v: View) {
