@@ -7,17 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/programmTitleTV"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarMain"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Калькулятор времени"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/green"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.04" />
+        tools:ignore="MissingConstraints" />
 
     <LinearLayout
         android:id="@+id/layoutEnterTime"
@@ -30,7 +30,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/programmTitleTV"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarMain"
         app:layout_constraintVertical_bias="0.1">
 
         <EditText
@@ -38,23 +38,25 @@
             style="@style/Widget.Material3.TextInputEditText.FilledBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="4pt"
+            android:layout_marginEnd="4pt"
             android:layout_weight="1"
-            android:hint="00h00m00s"
+            android:autofillHints=""
+            android:hint="@string/firstOp"
             android:background="@drawable/borner"
             android:textColor="@color/black"
-            android:textSize="22dp"/>
+            android:textSize="22sp"/>
 
         <EditText
             android:id="@+id/secondOperandET"
             style="@style/Widget.Material3.TextInputEditText.FilledBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="4pt"
+            android:layout_marginStart="4pt"
             android:layout_weight="1"
-            android:hint="00h00m00s"
+            android:autofillHints=""
+            android:hint="@string/secondOp"
             android:background="@drawable/borner"
-            android:textSize="22dp"/>
+            android:textSize="22sp"/>
 
     </LinearLayout>
 
@@ -79,14 +81,16 @@
             android:layout_marginLeft="44sp"
             android:layout_marginRight="44sp"
             android:layout_weight="1"
+            android:backgroundTint="#008000"
             android:focusable="auto"
-            android:text="+"
+            android:text="@string/plus"
             android:textAlignment="gravity"
             android:textColor="#171716"
             android:textColorLink="#191717"
-            android:textSize="24sp"
+            android:textSize="30sp"
             app:cornerRadius="12dp"
-            app:iconTint="@color/black"
+            app:iconTint="@color/whiteGreen"
+            app:rippleColor="@color/whiteGreen"
             app:strokeColor="#673AB7"
             app:strokeWidth="3dp" />
 
@@ -97,85 +101,37 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="44sp"
             android:layout_marginRight="44sp"
+            android:layout_weight="1"
+            android:backgroundTint="#008000"
             android:focusable="auto"
-            android:text="-"
+            android:text="@string/minus"
             android:textAlignment="gravity"
             android:textColor="#171716"
             android:textColorLink="#191717"
-            android:textSize="24sp"
+            android:textSize="30sp"
             app:cornerRadius="12dp"
             app:iconTint="@color/black"
             app:strokeColor="#673AB7"
-            app:strokeWidth="3dp"
-            android:layout_weight="1"/>
+            app:strokeWidth="3dp" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/resultTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:background="@drawable/borner_res"
         android:gravity="center_horizontal"
-        android:text="Результат"
+        android:text=""
+        android:hint="@string/result"
+        android:textColorHint="@color/black"
+        android:textColor="@color/red"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonOperation"
         app:layout_constraintVertical_bias="0.1" />
-
-    <LinearLayout
-        android:id="@+id/buttonResetExit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8pt"
-        android:layout_marginRight="8pt"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultTV"
-        app:layout_constraintVertical_bias="0.3">
-
-        <Button
-            android:id="@+id/buttonResetBTN"
-            style="@style/Widget.Material3.Button.OutlinedButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="35sp"
-            android:layout_marginRight="35sp"
-            android:layout_weight="1"
-            android:focusable="auto"
-            android:text="Reset"
-            android:textAlignment="gravity"
-            android:textColor="#171716"
-            android:textColorLink="#191717"
-            android:textSize="20sp"
-            app:cornerRadius="12dp"
-            app:iconTint="@color/black"
-            app:strokeColor="#EDC916"
-            app:strokeWidth="3dp" />
-
-        <Button
-            android:id="@+id/buttonExitBTN"
-            style="@style/Widget.Material3.Button.OutlinedButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="35sp"
-            android:layout_marginRight="35sp"
-            android:focusable="auto"
-            android:text="Exit"
-            android:textAlignment="gravity"
-            android:textColor="#171716"
-            android:textColorLink="#191717"
-            android:textSize="20sp"
-            app:cornerRadius="12dp"
-            app:iconTint="@color/black"
-            app:strokeColor="#21E11A"
-            app:strokeWidth="3dp"
-            android:layout_weight="1"/>
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
